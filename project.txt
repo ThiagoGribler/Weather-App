@@ -1,0 +1,3 @@
+1° - User inputs city. ✅
+2° - Program searches for info in the internet. ✅
+3° - Create a loop that refreshes the info. ✅
