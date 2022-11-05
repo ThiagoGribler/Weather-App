@@ -1,21 +1,30 @@
-import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
-
+#User city input.
 city = input("Insert City: ")
-concat = city + " " + "Current Weather "
-driver = webdriver.Chrome()
 
-while True:
-    driver.get("https://www.google.com/")
-    search = driver.find_element(By.NAME, "q")
-    search.send_keys(concat, Keys.ENTER)
-    temp = driver.find_element(By.ID, "wob_tm").text
-    condition = driver.find_element(By.ID, "wob_dc").text
-    driver.quit()
-    print("In"+" " + city + " the weather is:")
-    print("Temperature: " + temp + " °C")
-    print("Condition: " + condition)
-    time.sleep(300)
+#Saving a variable to  use in Chrome.
+concat = city + " " + "Current Weather "
+
+#Calling the driver and google.
+driver = webdriver.Chrome()
+driver.get("https://www.google.com/")
+
+#Finding the search bar, sending the concatenated string and pushing ENTER.
+search = driver.find_element(By.NAME, "q")
+search.send_keys(concat, Keys.ENTER)
+
+#Capturing the temperature and condition.
+temp = driver.find_element(By.ID, "wob_tm").text
+condition = driver.find_element(By.ID, "wob_dc").text
+
+#Closing the browser.
+driver.quit()
+
+#Printing the results in the console.
+print("In"+" " + city + " the weather is:")
+print("Temperature: " + temp + " °C")
+print("Condition: " + condition)
+
